@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
+import * as React from 'react'
+import { Redirect, Route, Router as BrowserRouter, Switch } from 'react-router-dom'
 import { Routes } from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
 
@@ -32,6 +32,11 @@ const LoginPage = React.lazy(() => catchChunkError(() => import('../components/p
 const HomePage = React.lazy(() => catchChunkError(() => import('../components/pages/home-page')))
 const ExamplesPage = React.lazy(() => catchChunkError(() => import('../components/pages/examples-page')))
 const DataPage = React.lazy(() => catchChunkError(() => import('../components/pages/data-page')))
+const ListingSearch = React.lazy(() => catchChunkError(() => import('../components/pages/listing-search')))
+const Listing = React.lazy(() => catchChunkError(() => import('../components/pages/listings')))
+const Bookmark = React.lazy(() => catchChunkError(() => import('../components/pages/bookmark')))
+const DetailListing = React.lazy(() => catchChunkError(() => import('../components/pages/listing')))
+const Dashboard = React.lazy(() => catchChunkError(() => import('../components/pages/dashboard')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -41,10 +46,23 @@ const Router = () => (
         <PrivateRouteWrapper>
           <Switch>
             <Route path={Routes.HOME} exact component={HomePage} />
+
             <Route path={Routes.FORM} exact component={ExamplesPage} />
             <Route path={Routes.TABLE} exact component={ExamplesPage} />
             <Route path={Routes.LIST} exact component={ExamplesPage} />
+
             <Route path={Routes.DATA} exact component={DataPage} />
+            <Route path={Routes.LISTING_SEARCH} exact component={ListingSearch} />
+            <Route path={Routes.LISTING} exact component={Listing} />
+            <Route path={Routes.DETAIL_LISTING} exact component={DetailListing} />
+            <Route path={Routes.BOOKMARK} exact component={Bookmark} />
+
+            <Route path={Routes.DASHBOARD} exact component={Dashboard} />
+            <Route path={Routes.AGENTS} exact component={Dashboard} />
+            <Route path={Routes.MESSAGES} exact component={Dashboard} />
+            <Route path={Routes.SETTING} exact component={Dashboard} />
+            <Route path={Routes.INVOICES} exact component={Dashboard} />
+            <Route path={Routes.RESIDENTS} exact component={Dashboard} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />

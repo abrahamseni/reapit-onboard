@@ -1,5 +1,5 @@
+import { BodyText, elMb7, PageContainer, PersistantNotification, Title } from '@reapit/elements'
 import React, { FC } from 'react'
-import { Title, BodyText, PageContainer, PersistantNotification, elMb7 } from '@reapit/elements'
 
 export const HomePage: FC = () => (
   <PageContainer>
@@ -12,7 +12,7 @@ export const HomePage: FC = () => (
       unless you logout. This will provide you with an accessToken and login identity information to authenticate
       against our plaform APIs. For more on this{' '}
       <a
-        href="https://developers.reapit.cloud/api-docs//api/web#connect-session"
+        href="https://foundations-documentation.reapit.cloud/app-development/connect-session"
         target="_blank"
         rel="noreferrer noopener"
       >
