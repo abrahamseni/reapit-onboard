@@ -15,4 +15,5 @@ export const Routes = {
   SETTING: '/dashboard/setting',
   INVOICES: '/invoices',
   RESIDENTS: '/residents',
+  USER_PROFILE: '/user/:id',
 }

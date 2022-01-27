@@ -37,6 +37,7 @@ const Listing = React.lazy(() => catchChunkError(() => import('../components/pag
 const Bookmark = React.lazy(() => catchChunkError(() => import('../components/pages/bookmark')))
 const DetailListing = React.lazy(() => catchChunkError(() => import('../components/pages/listing')))
 const Dashboard = React.lazy(() => catchChunkError(() => import('../components/pages/dashboard')))
+const UserProfile = React.lazy(() => catchChunkError(() => import('../components/pages/user-profile')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -63,6 +64,8 @@ const Router = () => (
             <Route path={Routes.SETTING} exact component={Dashboard} />
             <Route path={Routes.INVOICES} exact component={Dashboard} />
             <Route path={Routes.RESIDENTS} exact component={Dashboard} />
+
+            <Route path={Routes.USER_PROFILE} exact component={UserProfile} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />
