@@ -147,25 +147,69 @@ export const List = styled.li`
   gap: 4px;
   font-size: 20px;
 `
-
-export const PropertyIcon = styled.div`
+export const DashboardHeader = styled.header`
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  background-color: var(--color-grey-light);
-  padding: 16px;
-  border-radius: 6px;
+  margin-bottom: 16px;
+  height: 80px;
+  border-bottom: 1px solid var(--color-grey-medium);
+`
 
-  &.blue {
-    color: var(--intent-secondary);
-  }
-  &.green {
-    color: var(--intent-success);
-  }
-  &.yellow {
-    color: var(--intent-critical);
-  }
-  &.red {
-    color: var(--intent-danger);
-  }
+export const Avatar = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 9999px;
+  object-fit: cover;
+  cursor: pointer;
+`
+
+export const UserContainer = styled.div`
+  background-color: var(--color-grey-light);
+  display: flex;
+  gap: 16px;
+`
+
+export const UserImage = styled.img`
+  height: 200px;
+  width: 200px;
+  object-fit: contain;
+`
+
+export const UserForm = styled.form`
+  background-color: var(--color-white);
+  padding: 1rem;
+  width: 100%;
+  margin: 2rem;
+`
+
+export const UserAvatarContainer = styled.div`
+  display: flex;
+`
+
+export const NotificationContainer = styled.div`
+  display: flex;
+  position: relative;
+`
+export const Notification = styled.span`
+  border-radius: 9999px;
+  border: 1px solid var(--color-white);
+  background-color: orangered;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -10%;
+  right: -20%;
+  cursor: pointer;
+`
+
+export const whiteText = css`
+  color: var(--color-white);
+`
+
+export const textXs = css`
+  font-size: var(--layout-size-1_2);
 `
