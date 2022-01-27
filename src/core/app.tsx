@@ -1,6 +1,7 @@
 import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
 import '@reapit/elements/dist/index.css'
 import React, { FC } from 'react'
+import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import ErrorBoundary from '../components/hocs/error-boundary'
