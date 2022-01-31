@@ -185,24 +185,20 @@ export const UserForm = styled.form`
 
 export const UserAvatarContainer = styled.div`
   display: flex;
-`
-
-export const NotificationContainer = styled.div`
-  display: flex;
   position: relative;
 `
 export const Notification = styled.span`
   border-radius: 9999px;
   border: 1px solid var(--color-white);
   background-color: orangered;
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: -10%;
-  right: -20%;
+  top: 0%;
+  right: -10%;
   cursor: pointer;
 `
 

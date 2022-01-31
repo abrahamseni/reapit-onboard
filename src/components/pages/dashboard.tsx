@@ -11,7 +11,6 @@ import {
   Title,
 } from '@reapit/elements'
 import * as React from 'react'
-import { BsBell } from 'react-icons/bs'
 import { Route, useHistory, useLocation } from 'react-router'
 import { Routes } from '../../constants/routes'
 import { navigate } from '../../utils/navigation'
@@ -21,15 +20,7 @@ import Invoices from '../ui/dashboard/invoices'
 import Messages from '../ui/dashboard/messages'
 import Residents from '../ui/dashboard/residents'
 import SettingDashboard from '../ui/dashboard/setting-dashboard'
-import {
-  Avatar,
-  DashboardHeader,
-  Notification,
-  NotificationContainer,
-  textXs,
-  UserAvatarContainer,
-  whiteText,
-} from './__styles__/styles'
+import { Avatar, DashboardHeader, Notification, textXs, UserAvatarContainer, whiteText } from './__styles__/styles'
 
 const Dashboard = () => {
   const history = useHistory()
@@ -70,14 +61,11 @@ const Dashboard = () => {
               alt="avatar"
               onClick={navigate(history, '/user/123')}
             />
-            <NotificationContainer>
-              <BsBell size={20} />
-              <Notification onClick={navigate(history, Routes.MESSAGES)}>
-                <SmallText hasNoMargin className={cx(whiteText, textXs)}>
-                  5
-                </SmallText>
-              </Notification>
-            </NotificationContainer>
+            <Notification onClick={navigate(history, Routes.MESSAGES)}>
+              <SmallText hasNoMargin className={cx(whiteText, textXs)}>
+                5
+              </SmallText>
+            </Notification>
           </UserAvatarContainer>
         </DashboardHeader>
         <Route path={Routes.DASHBOARD} component={Home} exact />
