@@ -1,10 +1,11 @@
 import { cx } from '@linaria/core'
-import { BodyText, elMt11, elMt8, FlexContainer, Loader, Subtitle, Table } from '@reapit/elements'
+import { BodyText, elMb6, elMt11, elMt8, FlexContainer, Label, Loader, Select, Subtitle, Table } from '@reapit/elements'
 import { PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
 import * as React from 'react'
 import Chart from 'react-apexcharts'
 import { GiGreenhouse } from 'react-icons/gi'
 import { MdApartment, MdLandscape, MdOutlineDeveloperBoard, MdOutlineHouse } from 'react-icons/md'
+import { useGetOffices } from '../../../platform-api/office-api'
 import { useGetPropertiesBy } from '../../../platform-api/property-api'
 import { createTableRows } from '../../../utils/helpers'
 import { isFlexGap4, PropertyIcon } from '../__styles__/styles'
@@ -206,6 +207,19 @@ const seriesCircle = [71, 63]
 
 const Home = () => {
   const [showListing, setShowListing] = React.useState<PropertyType>(PropertyType.house)
+  const [selectOffice, setSelectOffice] = React.useState<string>('')
+  console.log(selectOffice, setSelectOffice)
+  const offices = useGetOffices()
+  const officeOptions: JSX.Element[] = []
+  if (offices.status === 'success' && offices.data) {
+    offices.data?._embedded?.forEach((office) => {
+      officeOptions.push(
+        <option key={office.id} value={office.id}>
+          {office.name}
+        </option>,
+      )
+    })
+  }
 
   const house = useGetPropertiesBy({
     pageNumber: 1,
@@ -258,6 +272,15 @@ const Home = () => {
 
   return (
     <>
+      <div className={cx(elMb6)}>
+        <Label>Filter by Offices</Label>
+        <Select onChange={(e) => console.log(e.target.value)}>
+          <option value="" disabled>
+            Select Office
+          </option>
+          {officeOptions.map((option) => option)}
+        </Select>
+      </div>
       <FlexContainer className={isFlexGap4}>
         <PropertyIcon className="blue" onClick={() => setShowListing(PropertyType.house)}>
           <BodyText>House</BodyText>
